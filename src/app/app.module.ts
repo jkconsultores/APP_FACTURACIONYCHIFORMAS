@@ -9,13 +9,15 @@ import { FilterPipe } from './pipes/filter.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FacturacionComponent } from './components/facturacion/facturacion.component';
 import { GuiaremisionComponent } from './components/guiaremision/guiaremision.component';
+import { ReporteComponent } from './components/reporte/reporte.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     FilterPipe,
     FacturacionComponent,
-    GuiaremisionComponent
+    GuiaremisionComponent,
+    ReporteComponent
   ],
   imports: [
     BrowserModule,

@@ -6,18 +6,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
   transform(items: any[], keyword: any, properties: string[]): any[] {
     if (!items) return [];
-    if (!keyword) return items;
+    if (keyword === null || keyword === undefined) return items;
+
+    const keywordString = String(keyword).toLowerCase();
+
     return items.filter(item => {
-      var itemFound: Boolean;
       for (let i = 0; i < properties.length; i++) {
-        if (item[properties[i]].toLowerCase().indexOf(keyword.toLowerCase()) !== -1) {
-          itemFound = true;
-          break;
+        const propertyValue = String(item[properties[i]]).toLowerCase();
+        if (propertyValue.includes(keywordString)) {
+          return true;
         }
       }
-      return itemFound;
+      return false;
     });
-
   }
 
 }
