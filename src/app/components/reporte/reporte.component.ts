@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbDateStruct, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { ListaGuiaremisionService } from 'src/app/services/lista-guiaremision.service';
 import Swal from 'sweetalert2';
-/* import * as XLSX from 'xlsx'; */
+import * as XLSX from 'xlsx';
 @Component({
   selector: 'app-reporte',
   templateUrl: './reporte.component.html',
   styleUrls: ['./reporte.component.scss']
 })
 export class ReporteComponent {
-/*   filterSerie='';
+  filterSerie='';
   filtroEstado='';
   page=0;
   spe_despatch = [];
@@ -16,7 +18,7 @@ export class ReporteComponent {
   desde = this.fechaActual();
   hasta = this.fechaActual();
   modalRef: NgbModalRef;
-  constructor(private api: ApiRestService, private modalService: NgbModal) {
+  constructor(private api:ListaGuiaremisionService, private modalService: NgbModal,private rout:Router) {
     this.getSpe_despatch(this.desde,this.hasta);
   }
   getSpe_despatch(desde,hasta) {
@@ -57,6 +59,9 @@ export class ReporteComponent {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     XLSX.writeFile(wb, 'spe_despatch.xlsx');
-  } */
-
+  }
+  CerrarSesion(){
+    localStorage.removeItem('token');
+    this.rout.navigateByUrl('login');
+  }
 }

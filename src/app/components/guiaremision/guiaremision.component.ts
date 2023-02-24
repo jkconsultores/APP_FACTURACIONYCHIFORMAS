@@ -13,6 +13,9 @@ import { adquiriente } from 'src/app/interfaces/adquiriente';
   styleUrls: ['./guiaremision.component.scss']
 })
 export class GuiaremisionComponent {
+  getSpe_despatch(desde: any, hasta: any) {
+    throw new Error('Method not implemented.');
+  }
   empaquesSeleccionados=[];
   empaquesSeleccionadosCss=[];
   empaques=[];
